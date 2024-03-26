@@ -58,7 +58,7 @@ const registrarSpreadsheetFields: ValidFields = {
   FacultyLoad: cf.facultyHoursCallback,
   // GlobalMax: cf.globalMaxCallback,
   Group: cf.groupCallback,
-  InstructionalMethod: cf.instructionalMethodCallback,
+  InstructionalFormat: cf.instructionalMethodCallback,
   Instructors: cf.instructorCallback,
   LastEditTimestamp: cf.timestampCallback,
   Location1: cf.locationCallback,

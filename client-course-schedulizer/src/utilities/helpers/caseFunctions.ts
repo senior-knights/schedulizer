@@ -363,8 +363,8 @@ export const endDateCase = (
   value: string,
   startSectionDate: string | undefined,
 ): SemesterLength => {
-  const sectionStart = moment(startSectionDate, "l");
-  const sectionEnd = moment(value, "l");
+  const sectionStart = moment(startSectionDate);
+  const sectionEnd = moment(value);
   const sectionLength = sectionEnd.diff(sectionStart, "days");
   const startMonth = sectionStart.month();
   const firstStartMonths = [0, 1, 7, 8]; // Jan, Feb, Aug, Sept
