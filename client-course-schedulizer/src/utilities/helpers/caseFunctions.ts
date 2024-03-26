@@ -238,8 +238,10 @@ export const sectionCallback = (value: string, params: CaseCallbackParams) => {
 
 export const meetingPatternCallback = (value: string, params: CaseCallbackParams) => {
   const meetingDays = value.split("|")[0];
-  const startTime = value.split(" ")[2];
-  const endTime = value.split(" ")[4];
+
+  const timeParts = value.split(" ");
+  const startTime = timeParts[2] + timeParts[3];  // "2:45" + "PM" = "2:45PM"
+  const endTime = timeParts[5] + timeParts[6];
 
   daysCallback(meetingDays, params);
   timeCallback(startTime + " - " + endTime, params);
