@@ -54,9 +54,53 @@ const assignWithMeetings = (
   });
 };
 
+export const meetingPatternCallback = (value: string, params: CaseCallbackParams) => {
+  const patternParts = value.split("\n");
+  var meetingDays = "";
+  var times = "";
+
+  patternParts.forEach((element) => {
+    params.section.comments += element + "\n";
+    if (element.length > 1) {
+      meetingDays += element.split("|")[0].trimEnd() + "\n";
+      const timeParts = element.split(" ");
+      const time = timeParts[2] + timeParts[3] + " - " + timeParts[5] + timeParts[6] + "\n";
+      times += time;
+    }
+  });
+
+  daysCallback(meetingDays, params);
+  timeCallback(times, params);
+};
+
+export const daysCallback = (value: string, params: CaseCallbackParams) => {
+  assignWithMeetings(value, params, (days, i, meetings) => {
+    meetings[i].days = daysCase(days);
+  });
+};
+
+export const timeCallback = (value: string, params: CaseCallbackParams) => {
+  const timeParts = value.split("\n");
+  var startTimes = "";
+
+  timeParts.forEach((time) => {
+    const startTime = time.split(" ").join("").split("-")[0];
+    startTimes += startTime + "\n";
+  })
+
+  startTimeCallback(startTimes, params);
+  durationCallback(value, params);
+};
+
 export const startTimeCallback = (value: string, params: CaseCallbackParams) => {
   assignWithMeetings(value, params, (startTime, i, meetings) => {
     meetings[i].startTime = startTimeCase(startTime);
+  });
+};
+
+export const durationCallback = (value: string, params: CaseCallbackParams) => {
+  assignWithMeetings(value, params, (duration, i, meetings) => {
+    meetings[i].duration = durationCase(duration);
   });
 };
 
@@ -87,12 +131,6 @@ export const termCallback = (value: string, { section }: CaseCallbackParams) => 
 
 export const semesterLengthCallback = (value: string, { section }: CaseCallbackParams) => {
   section.semesterLength = semesterLengthCase(value);
-};
-
-export const daysCallback = (value: string, params: CaseCallbackParams) => {
-  assignWithMeetings(value, params, (days, i, meetings) => {
-    meetings[i].days = daysCase(days);
-  });
 };
 
 export const instructorCallback = (value: string, { section }: CaseCallbackParams) => {
@@ -162,12 +200,6 @@ export const facultyHoursCallback = (value: string, { section }: CaseCallbackPar
   section.facultyHours = value.startsWith("$") ? Number(value.substr(1)) : Number(value);
 };
 
-export const durationCallback = (value: string, params: CaseCallbackParams) => {
-  assignWithMeetings(value, params, (duration, i, meetings) => {
-    meetings[i].duration = durationCase(duration);
-  });
-};
-
 export const roomCapacityCallback = (value: string, params: CaseCallbackParams) => {
   assignWithMeetings(value, params, (capacity, i, meetings) => {
     meetings[i].location.roomCapacity =
@@ -224,7 +256,6 @@ export const groupCallback = (value: string, { section }: CaseCallbackParams) =>
   section.group = value;
 };
 
-
 export const sectionCallback = (value: string, params: CaseCallbackParams) => {
   if (value === "--" || value.trim() === "") {
     params.section.isNonTeaching = true;
@@ -234,23 +265,6 @@ export const sectionCallback = (value: string, params: CaseCallbackParams) => {
     numberCallback(sectionParts[1], params);
     letterCallback(sectionParts[2], params);
   }
-};
-
-export const meetingPatternCallback = (value: string, params: CaseCallbackParams) => {
-  const meetingDays = value.split("|")[0];
-
-  const timeParts = value.split(" ");
-  const startTime = timeParts[2] + timeParts[3];  // "2:45" + "PM" = "2:45PM"
-  const endTime = timeParts[5] + timeParts[6];
-
-  daysCallback(meetingDays, params);
-  timeCallback(startTime + " - " + endTime, params);
-}
-
-export const timeCallback = (value: string, params: CaseCallbackParams) => {
-  const [startTime] = value.split(" ").join("").split("-");
-  startTimeCallback(startTime, params);
-  durationCallback(value, params);
 };
 
 export const nonTeachingActivityCallback = (value: string, params: CaseCallbackParams) => {
