@@ -60,7 +60,6 @@ export const meetingPatternCallback = (value: string, params: CaseCallbackParams
   var times = "";
 
   patternParts.forEach((element) => {
-    params.section.comments += element + "\n";
     if (element.length > 1) {
       meetingDays += element.split("|")[0].trimEnd() + "\n";
       const timeParts = element.split(" ");
