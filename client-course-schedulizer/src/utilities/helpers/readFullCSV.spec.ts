@@ -22,11 +22,11 @@ let expectedOutputCSV: string;
 beforeAll(async () => {
   // File read from https://stackoverflow.com/questions/32705219/nodejs-accessing-file-with-relative-path
   const fullCSVString: string = readFileSync(
-    join(__dirname, "..", "..", "..", "csv", "Course_Section_Enrollment_Report.csv"),
+    join(__dirname, "..", "..", "..", "csv", "Course_Section_Enrollment_Report-CS-DS-2023.csv"),
     "utf8",
   );
   expectedFullOutputCSV = readFileSync(
-    join(__dirname, "..", "..", "..", "csv", "full_schedule_2024-03-14T20_23_20-04_00.csv"),
+    join(__dirname, "..", "..", "..", "csv", "Course_Section_Enrollment_Report-CS-DS-2023_Output.csv"),
     "utf8",
   );
   // expectedOutputCSV = readFileSync(
@@ -35,8 +35,9 @@ beforeAll(async () => {
   // );
   schedule = csvStringToSchedule(fullCSVString);
   [basicCourse] = schedule.courses;
-  [basicSection, noMeetingSection] = basicCourse.sections;
-  [multipleInstructorSection] = schedule.courses[7].sections;
+  [basicSection] = basicCourse.sections;
+  [noMeetingSection] = schedule.courses[40].sections;
+  [multipleInstructorSection] = schedule.courses[19].sections;
   // [interimSection] = schedule.courses[3].sections;
   [firstHalfSection] = schedule.courses[1].sections;
   fullOutputCSV = scheduleToFullCSVString(schedule);
@@ -53,7 +54,7 @@ it("loads csv to Schedule object", () => {
 
 // The number of courses (NOT SECTIONS) in the schedule.
 it("loads all courses", () => {
-  expect(schedule.courses.length).toEqual(43);
+  expect(schedule.courses.length).toEqual(41);
 });
 
 // Check the information of the first course.
@@ -177,11 +178,12 @@ describe("parses basic section", () => {
 });
 
 // Check the information of a section with multiple instructors.
-// it("parses multiple instructors", () => {
-//   expect(multipleInstructorSection.instructors.length).toEqual(1);
-//   expect(multipleInstructorSection.instructors[0]).toEqual("Victor Norman");
-  // expect(multipleInstructorSection.instructors[1]).toEqual("Derek Schuurman");
-// });
+it("parses multiple instructors", () => {
+  expect(multipleInstructorSection.instructors.length).toEqual(3);
+  expect(multipleInstructorSection.instructors[0]).toEqual("Adam Vedra");
+  expect(multipleInstructorSection.instructors[1]).toEqual("");
+  expect(multipleInstructorSection.instructors[2]).toEqual("Brian Paige");
+});
 
 // Check the information of a interim section.
 // CURRENTLY NOT IN USE BECAUSE WE DON'T HAVE INTERIM COURSE.
@@ -211,10 +213,9 @@ describe("parses basic section", () => {
 //   });
 // });
 
-// THIS MAY NOT BE NECESSARY BECAUSE SECTIONS WITH NO MEETING TIME ARE NOT LOADED IN.
-// it("handles sections with no meeting time", () => {
-//   expect(noMeetingSection.meetings.length).toEqual(0);
-// });
+it("handles sections with no meeting time", () => {
+  expect(noMeetingSection.meetings.length).toEqual(0);
+});
 
 it("parses first half semester length", () => {
   expect(firstHalfSection.semesterLength).toEqual(SemesterLength.HalfFirst);
