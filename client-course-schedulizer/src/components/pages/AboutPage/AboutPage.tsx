@@ -184,6 +184,12 @@ const AboutReport = () => {
       body={
         <ul>
           <li>
+            <NewTabLink href="https://docs.google.com/document/d/1l0ChWMDnPiDJkvFFctdpIZUheSkJ3shouFSYFIIsNW0/edit?usp=sharing">
+              Final Report
+            </NewTabLink>{" "}
+            - 4.30.2024
+          </li>
+          <li>
             <NewTabLink href="https://docs.google.com/document/d/16FBgWv1JVa3SDyDcNtiC_EZ3NYhkU7Y5tBEmhjGQftM/edit?usp=sharing">
               2023 Project Proposal
             </NewTabLink>{" "}
@@ -244,6 +250,19 @@ const AboutResources = () => {
             <NewTabLink href="https://computing.calvin.edu/">
               Computing@Calvin Department Website
             </NewTabLink>
+          </li>
+          <hr />
+          <li>
+            <NewTabLink href="https://docs.google.com/presentation/d/e/2PACX-1vT2RDZd5XCKPz_ecGbYOfCiQvsGsQqXxdDd_kh251djFpP3tDQLzgKj0Ts-Vwy2tosev_MQoPxq_x40/pub?start=false&loop=false&delayms=3000">
+              Final Presentation Slides
+            </NewTabLink> - 
+              4.23.2024
+          </li>
+          <li>
+            <NewTabLink href="https://docs.google.com/presentation/d/e/2PACX-1vQZ2cpoTzUtnVa-s_YeGGv3FHHSpHdR0zAJXY6jwJL8zrHTa7-zGtWGIKkGzUglcTfykCA3uML3hsZu/pub?start=false&loop=false&delayms=3000">
+              Status Report Slides
+            </NewTabLink> - 
+              12.5.2023
           </li>
           <hr />
           <li>
