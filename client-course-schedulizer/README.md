@@ -1,46 +1,70 @@
-# Client Course Schedulizer
+# Course Schedulizer Client
 
-📝 **Create semester schedules without stress.** This is the client folder for the [`senior-knights/course-schedulizer`](https://github.com/senior-knights/course-schedulizer) project. For more information about the application, please view the [About Page](https://senior-knights.github.io/course-schedulizer/#/about) on our website. For help using the application, visit our [Help Page](https://senior-knights.github.io/course-schedulizer/#/help) (once we make it).
+The Course Schedulizer is a single-page application that allows users to view and interact with course schedules. The client is built with a focus on user experience and accessibility. See the [Calvin Knights root](../README.md) for general information on this project.
 
-<a href="https://senior-knights.github.io/course-schedulizer/"><img alt="prod build" src="https://img.shields.io/badge/schedulizer-8C2131?logo=internet-explorer" /></a>
-<a href="https://github.com/senior-knights/course-schedulizer"><img src="https://img.shields.io/github/workflow/status/senior-knights/course-schedulizer/Deployment.svg" alt="deployment status"></a>
-<a href="https://www.calvin.edu"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/calvin-knights-F3CD00?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAB8lBMVEUAAAB4eHgZUUa+lp2ShYdOT1EvLS7/2ewfHh4oJif///9ISU8uLCzQwpcICAUxLzBGREU7OTpxbm5tbGsACgZvbm0rXlRRT1BSUFD//9IeHiBTUVF1dHJXamRoZmUBBDC3spvw26AJCQxFTnBubW4CBTS/t5r//8IVFht/gYCacniaWWOqeICvlZp9cnQAAAB1c3OgjI+dZW+ZPk6cgYd9fn6ri5DCrYkpOVcuLCxPT0+Be3yZWGTryWmhl30hICCAfn+ylZm5nXgAAENWVVWhl5mkhY3ewX2yholxc3QAAAAAAEHIsXGxhoxzdHMYWktUZGmQjILszHWzlXoAAD5JTk2XhYiqfH6teHvNlnSjl39ESkmci4/Rq3/FrYhxcm8WPlGdmILUunH2ylLTu3ZRWnVtcYG5qX7pxF3rwmCqn34AF2SZk4TUuG7XumxeZn9xc320poOimIGeRFSgR1K7gIiYOEmpVlXkuIXwyX/wxnSlTVLu0KL/+Nz//e//7rOhTl3Tn4P//Or9+/rv2sTZqIHPkFz22aHJmJ+7en+7fIe7e4btw3W9gIy5eoW+g429gIrz05rfwL3LnajFh3D0w1z/3nn/773u0Y7uuVbIhFytX2HGhGTntmzOmHznr1O0Z1ieRFXTl2L5x0nlrlr3ykssme+IAAAAc3RSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACax+vrLLAJBfcz+hDrYvw0DCjTc808NgeSiAzOgrOrcHQIFnt4eAQ9j+Z8DEXfN6/5wDoLuzCIDQ8L9vg8WhOz6XgNEwsgUG5lvA/jZ2AAAAI1JREFUCNc9y8FHQwEAx/Hf5xIREzNj0mGKmTEdslT2GJP+3yfR28syKdJhpEP/RsQuO7yt48fXV4Rz8GUjBwMoqNf+5NBQAZX1r6MRprDwSWu8E08+HLtoVirvkvblP18lnavdXXuR7i3cYFmTXtGAZ5XkZLavHiU5NefaygNJkv4dkzflT8Ocuaf0vQXX3B/iTs/DcAAAAABJRU5ErkJggg==" /></a>
-<a href="https://sharp-babbage-a45ee2.netlify.app/"><img alt="dev build" src="https://img.shields.io/badge/schedulizer%20dev-71B1C8?logo=internet-explorer" /></a>
-
-> Created by current students at [Calvin University](https://calvin.edu/) for their [computer science senior project](https://cs.calvin.edu/courses/cs/396/).
-
-## Built with
-
-<a href="https://reactjs.org/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/react-000?logo=react" /></a>
-<a href="https://www.typescriptlang.org/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/typescript-000?logo=typescript" /><a/>
-<a href="https://code.visualstudio.com/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/VS Code-000?logo=visual%20studio%20code" /></a>
-<a href="https://github.com/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/github-000?logo=github" /></a>
-<a href="https://www.npmjs.com/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/npm-000?logo=npm" /></a>
-<a href="https://www.netlify.com/"><img alt="https://senior-knights.github.io/course-schedulizer/" src="https://img.shields.io/badge/netlify-000?logo=netlify" /></a>
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## How to use
-
-`csv/` contains test files for the application.
-
-`public/` contains files import when deploying the application.
-
-`src/` contains all source files that build the client application. For development techniques, see below.
-
-`.eslintrc.js` is a specific ESLint config. `.env` allows for overriding the Create React App ESLint config.
-
-The `.tsconfig` has been modified to allow for barreling and absolute imports.
-
-[Husky](https://typicode.github.io/husky/#/) is used with [Lint Staged](https://github.com/okonet/lint-staged) to format all code to the ESLint rules when they are committed. This insures that changes pushed are not confused by changing syntax or code style.
+[![node js](https://img.shields.io/badge/node_js-000?logo=node.js)](https://nodejs.org)
+[![pnpm](https://img.shields.io/badge/pnpm-000?logo=pnpm)](https://pnpm.io/)
+[![react js](https://img.shields.io/badge/react_js-000?logo=react)](https://react.dev/)
+[![create react app](https://img.shields.io/badge/create_react_app-000?logo=createreactapp)](https://create-react-app.dev/)
+[![typescript](https://img.shields.io/badge/typescript-000?logo=typescript)](https://www.typescriptlang.org/)
+[![github](https://img.shields.io/badge/github-121013?logo=github&logoColor=white)](https://github.com/)
+[![github pages](https://img.shields.io/badge/github_pages-121013?logo=github&logoColor=white)](https://pages.github.com/)
+[![netlify](https://img.shields.io/badge/netlify-000?logo=netlify)](https://www.netlify.com/)
+[![vscode](https://img.shields.io/badge/vscode-000?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAE+SURBVHgBjVJNToNAFP5moInpiiPIDdqauDY9gh6g1BO4s9EFYceqqRcQepEat02UjXvaE8hGtBHmOdMiZQAjb8FLePP9vB+GLuG+Adn3BJS5YKaHHM/whxvWEeiA8kAvsIDv801k/QluBaogh+PuxUU/j2UOGiT30aQdeAgOkW9lthQT+lmE2+i0Agxr7xPN+P47WzvgvFCgDQhLMOYeHVIMRlcgPpeIi9+/x4FpBFpEEMYlTnpb7L5WVTAvn/jnIUgsNRhJF6kxVmtpIS1sN9dBZQ3SsjDH7cpN4DsE8woCxWGDZyt8pIO6Mj9cTgFUgxHGCP6ZByGuKwZt9PirVB3oYMpsObdY9hvi0xyV/akZCDGtiVnNntVxLIYJ2mK2nsotPLZUqNtt79I6QSIn8vQ/WCeYS8EHpOZCOf0BmnSexRUGtfwAAAAASUVORK5CYII=)](https://code.visualstudio.com/)
 
 ## Development
 
-This will go through the development process for the `client-course-schedulizer` application.
+Development is best done using [VS Code](https://code.visualstudio.com/) and the pre-defined project [workspace](https://code.visualstudio.com/docs/editor/workspaces). To begin editing, open the [workspace file](.vscode/course-schedulizer.code-workspace) with VS Code. This will configure VS Code [settings](https://code.visualstudio.com/docs/getstarted/settings) and prompt you to install the recommended VS Code [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace), which helps maintain the consistency and quality of the project codebase.
+
+## Workflows
+
+To work with this GitHub codebase, `git clone` this repo and `cd` into the new repo sub-directory.
+
+**To run the Schedulizer locally:**
+
+1. `git checkout` the branch you want to work on (e.g., your dedicated feature branch).
+1. `cd client-course-schedulizer` to move into the monorepo&rsquo;s client application sub-directory.
+1. `pnpm install` to install the required NodeJS packages as specified in `package.json`.
+1. `pnpm start` to run the website on [localhost:3000](http://localhost:3000).
+
+Edits you make to the code will automatically update the website in your browser.
+
+**To deploy the Schedulizer to the development server:**
+
+1. Create a pull request to merge your fully-implemented-and-tested feature branch into the `develop` branch.
+
+When the PR is approved, the development server, configured on Netlify, will auto-deploy the new version of the `develop` branch. See the:
+
+- Development server dashboard at [https://app.netlify.com/sites/sharp-babbage-a45ee2](https://app.netlify.com/sites/sharp-babbage-a45ee2)
+- Running application at: [https://sharp-babbage-a45ee2.netlify.app](https://sharp-babbage-a45ee2.netlify.app)
+
+**To deploy a new production version of the Schedulizer to the production server:**
+
+Follow the same workflow as for the development server, but merge your feature branch into the `production` branch. The production server, configured on GitHub Pages, will auto-deploy the new version of the `production` branch. See the:
+
+- Running application at [https://senior-knights.github.io/course-schedulizer](https://senior-knights.github.io/course-schedulizer).
+
+MUST DOCUMENT THE CI AND DEPLOY STUFF.
+
+NOT SURE WHERE TO PUT THIS YET.
+
+- .github/workflows: the github auto-test and auto-deploy scripts
+  - ci.yml: automatically test the latest update
+    - Trigger: push to all branches, PR to `develop` and `production`
+    - Work environment: ./client-course-schedulizer
+    - Steps:
+      - Set up actions for pnpm and node
+      - Update pnpm version
+      - Install pnpm dependencies
+      - Run pnpm test on the latest push or PR
+  - deploy.yml: auto-deploy
+    - This script is not updated to use pnpm yet, must be updated before pushing to `production` or error will occur
 
 ### Available Scripts
 
 In the project directory, you can run:
+
+NEEDS TO BE FIXED...
 
 #### `npm start`
 
@@ -63,9 +87,40 @@ Builds the app for production to the `build` folder. It correctly bundles React 
 
 Used by GitHub actions to deploy the build. Will trigger `predeploy` command.
 
+[Husky](https://typicode.github.io/husky/#/) is used with [Lint Staged](https://github.com/okonet/lint-staged) to format all code to the ESLint rules when they are committed. This insures that changes pushed are not confused by changing syntax or code style.
+
+## Directories
+
+- `csv/` contains sample course schedules in `.csv` and `.xlsx` formats. The files include new and old formats, which are not compatible.
+
+- `public/` contains files to import when deploying the application.
+
+- `src/` contains all source files that build the client application.
+
+  - `src/assets` contains images utilized by the application
+  - `src/components` contains the basic components used in the UI. Note that `pages/HarmonyPage` has been removed from the UI.
+  - `src/data` contains constraints on times within which classes may start. These constraints are run in R. Ask Prof. Pruim for more information about how this is done.
+  - `src/styles` establishes colors and fonts used in the application.
+  - `src/types` establishes objects used in the application (it's best not to alter this).
+  - `src/utilities` provides various functions and objects to help the application function (to be discussed in further detail later).
+  - Other files handle server operations.
+
+- `utilities/` contains various utilities.
+
+  - `utilities/contexts` establishes the global state of the app.
+  - `utilities/helpers` provides various helpful functions for development use.
+  - `utilities/hooks` provides hooks for interacting with the schedule.
+  - `utilities/interfaces` defines the app interfaces and data interfaces.
+  - `utilities/reducers` provides functions to perform multiple setState updates at once that depend on each other.
+  - `utilities/services` provides services, e.g., for detecting conflict, calculating faculty load, etc.
+
+- `.eslintrc.js` is a specific ESLint config. `.env` allows for overriding the Create React App ESLint config.
+
+- `.tsconfig` has been modified to allow for barreling and absolute imports.
+
 ## Development Philosophy
 
-React's functional programming is great for dealing with complex, stateful user interfaces. With React, all data is either primitives or an object (which includes functions) since the library focuses on immutability. Each React component defines how every view will behave for a given state. Generally, each view is rendered whenever the data is updated.
+React&rsquo;s functional programming is great for dealing with complex, stateful user interfaces. With React, all data is either primitives or an object (which includes functions) since the library focuses on immutability. Each React component defines how every view will behave for a given state. Generally, each view is rendered whenever the data is updated.
 
 ### Barrelling
 

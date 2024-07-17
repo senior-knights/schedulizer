@@ -63,7 +63,7 @@ export const team2022: TeamMember[] = [
     bio:
       "Computer Science Student at Calvin University.",
     name: "Samuel Haileselassie",
-    photo: "https://media-exp1.licdn.com/dms/image/C5603AQH8mr-DiG2BEw/profile-displayphoto-shrink_400_400/0/1634434581718?e=1671667200&v=beta&t=RyVTx8CAqQ8RmELiQN5PBXM7Bf2pQGSGu8uO40E7v4k",
+    photo: "https://avatars.githubusercontent.com/u/66380716?v=4",
     website: "https://github.com/samuelth47",
   },
   {
