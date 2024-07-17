@@ -1,106 +1,250 @@
-import React from "react";
 import { Page } from "components/reuseables";
+import React from "react";
 import { TextSection } from "../AboutPage/.";
 
 export const HelpPage = () => {
-	return (
-		<Page>
-			<Functionality />
-			<FormatSegment />
-			<Faq />
-		</Page>
-	);
+  return (
+    <Page>
+      <Functionality />
+      <FormatSegment />
+      <Faq />
+    </Page>
+  );
 };
 
 const Functionality = () => {
-	return (
-		<TextSection
-			body={
-				<>
-					Beginning from blank - Click the Calvin University logo in the upper left corner to make sure you're on the starting page,
-					then click "Add Section" to input a class. In the "Formatting" section on this page (below this text), you can read about some 
-					recommended ways to format your inputs. Fill in all the values according to the class's parameters.
-					
-					Once you've created a class, your screen will change to show a calendar view. To add another class, click the "plus" (+) symbol 
-					at the right side of the gray bar (this bar appears on the faculty schedule, room schedule, and department schedule pages).
-					
-					If you find yourself in the "Add Section" screen unintentionally, or need to back out of it for any reason, simply press your "Escape" key
-					on your keyboard and you will return to where you were before.
-					<br />
-					<br />
-					Importing CSV -  Presently, the system allows for the import of .csv files. You can import these files by clicking the "Import CSV" button on the main page,
-					or by clicking the "Hamburger menu" (three lines in the upper left corner of the screen) and selecting "Import New Schedule."
-				</>
-			}
-		title="Help"
-		/>
-	);
+  return (
+    <TextSection
+      body={
+        <>
+          <strong>To create a schedule from scratch</strong>:
+          <ol>
+            <li>
+              Click the Calvin University logo in the upper left corner to make sure you&rsquo;re on
+              the starting page.
+            </li>
+            <li>Click &ldquo;Add Section&rdquo; to input a class.</li>
+            <li>
+              In the &ldquo;Formatting&rdquo; section on this page (see below), you can read about
+              some recommended ways to format your inputs. Fill in all the values as appropriate for
+              the class. Once you&rsquo;ve created a class, your screen will change to show a
+              calendar view.
+            </li>
+            <li>
+              To add another class, click the &ldquo;plus&rdquo; (+) symbol at the right side of the
+              gray bar (this bar appears on the faculty schedule, room schedule, and department
+              schedule pages).
+            </li>
+          </ol>
+          If you find yourself in the &ldquo;Add Section&rdquo; screen unintentionally, or need to
+          back out of it for any reason, simply press your "Escape" key on your keyboard and you
+          will return to where you were before.
+          <br />
+          <br />
+          <strong>To edit an existing schedule</strong>, load a schedule CSV file by clicking:
+          <ul>
+            <li>The &ldquo;Import CSV&rdquo; button on the main page.</li>
+            <li>
+              The &ldquo;Hamburger menu&rdquo; (three lines in the upper left corner of the screen)
+              and selecting &ldquo;Import New Schedule&rdquo;.
+            </li>
+          </ul>
+        </>
+      }
+      title="Help"
+    />
+  );
 };
 
 const FormatSegment = () => {
   return (
-  <TextSection
-   body={
-	<>
-	
-   This is a work in progress Help page that team 2023 is continuing to update.
-	
-   Below is provided some formatting help:
-	<ul>
-	<li> Department: string (like `Mathematics`)</li>
-	<li> *Term: (FA | SP | IN) (like `SP` for Spring)</li>
-	<li> TermStart: mm/dd/yyyy (like `3/29/2021` or `12/1/2022`)</li>
-	<li> *AcademicYear: yyyy (like `2021`)</li>
-	<li> *SectionName: SubjectCode-CourseNum-SectionCode (like `MATH-252-B`)</li>
-	<li> SubjectCode: string (like `MATH`)</li>
-	<li> CourseNum: string (like `252` or `252L` for a lab)</li>
-	<li> SectionCode: string (like `B`)</li>
-	<li> CourseLevelCode: pos num (like `200` for a 200 level course)</li>
-	<li> MinimumCredits: pos num (like `3` or `3.5`)</li>
-	<li> FacultyLoad: pos num (like `4` or `4.5`)</li>
-	<li> *Used: pos num (like `20`)</li>
-	<li> *Day10Used: pos num (like `22`)</li>
-	<li> *LocalMax: pos num (like `25`)</li>
-	<li> *GlobalMax: pos num (like `30`)</li>
-	<li> *RoomCapacity: pos num (like `32`)</li>
-	<li> BuildingAndRoom: string (like `HH 345`)</li>
-	<li> MeetingDays: M?T?W?(TH)?F? (like `MWTHF`)</li>
-	<li> MeetingTime: xx:xx(AM | PM) - xx:xx(AM | PM) (like `9:00AM - 9:50AM`)</li>
-	<li> SectionStartDate: mm/dd/yyyy (like `3/29/2021` or `12/1/2022`)</li>
-	<li> SectionEndDate: mm/dd/yyyy (like `3/29/2021` or `12/1/2022`)</li>
-	<li> *Building: string (like `HH`)</li>
-	<li> *RoomNumber: string (like `345`)</li>
-	<li> MeetingStart: xx:xx(AM | PM) (like `2:30PM`)</li>
-	<li> *MeetingStartInternal: xx:xx:xx 24-hour (like `14:30:00`)</li>
-	<li> MeetingEnd: xx:xx(AM | PM) (like `3:20PM`)</li>
-	<li> *MeetingEndInternal: xx:xx:xx 24-hour (like `13:20:00`)</li>
-	<li> *Monday: `M` or empty</li>
-	<li> *Tuesday: `T` or empty</li>
-	<li> *Wednesday: `W` or empty</li>
-	<li> *Thursday: `TH` or empty</li>
-	<li> *Friday: `F` or empty</li>
-	<li> ShortTitle: string (like `Number Theory`)</li>
-	<li> Faculty: string (first and last) (like `Paul Erdos`)</li>
-	<li> *SectionStatus: string (like `Active`)</li>
-	<li> InstructionalMethod: `LEC`, `CPI`, `IND`, `TUT`, or `SEM`</li>
-	<li> DeliveryMode: `In-person`, `Online (synchronous)`, `Online (asynchronous)`, `Hybrid`</li>
-	</ul>
-	</>
-	}
-	title="Formatting"
-   />
+    <TextSection
+      body={
+        <>
+          In the web app, upload a CSV following the prescribed specifications (items marked with *
+          are optional and ignored, but were required in older versions of the app)
+          <ul>
+            <li>
+              {" "}
+              <strong>Department</strong>: string (e.g., <code>Mathematics</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>Term</strong>: (FA | SP | IN) (e.g., <code>SP</code> for Spring)
+            </li>
+            <li>
+              {" "}
+              <strong>TermStart</strong>: mm/dd/yyyy (e.g., <code>3/29/2021</code> or{" "}
+              <code>12/1/2022</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>AcademicYear</strong>: yyyy (e.g., <code>2021</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>SectionName</strong>: SubjectCode-CourseNum-SectionCode (e.g.,{" "}
+              <code>MATH-252-B</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>SubjectCode</strong>: string (e.g., <code>MATH</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>CourseNum</strong>: string (e.g., <code>252</code> or <code>252L</code> for a
+              lab)
+            </li>
+            <li>
+              {" "}
+              <strong>SectionCode</strong>: string (e.g., <code>B</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>CourseLevelCode</strong>: pos num (e.g., <code>200</code> for a 200 level
+              course)
+            </li>
+            <li>
+              {" "}
+              <strong>MinimumCredits</strong>: pos num (e.g., <code>3</code> or <code>3.5</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>FacultyLoad</strong>: pos num (e.g., <code>4</code> or <code>4.5</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>Used</strong>: pos num (e.g., <code>20</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>Day10Used</strong>: pos num (e.g., <code>22</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>LocalMax</strong>: pos num (e.g., <code>25</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>GlobalMax</strong>: pos num (e.g., <code>30</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>RoomCapacity</strong>: pos num (e.g., <code>32</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>BuildingAndRoom</strong>: string (e.g., <code>HH 345</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>MeetingDays</strong>: M?T?W?(TH)?F? (e.g., <code>MWTHF</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>MeetingTime</strong>: xx:xx(AM | PM) - xx:xx(AM | PM) (e.g.,{" "}
+              <code>9:00AM - 9:50AM</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>SectionStartDate</strong>: mm/dd/yyyy (e.g., <code>3/29/2021</code> or{" "}
+              <code>12/1/2022</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>SectionEndDate</strong>: mm/dd/yyyy (e.g., <code>3/29/2021</code> or{" "}
+              <code>12/1/2022</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>Building</strong>: string (e.g., <code>HH</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>RoomNumber</strong>: string (e.g., <code>345</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>MeetingStart</strong>: xx:xx(AM | PM) (e.g., <code>2:30PM</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>MeetingStartInternal</strong>: xx:xx:xx 24-hour (e.g., <code>14:30:00</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>MeetingEnd</strong>: xx:xx(AM | PM) (e.g., <code>3:20PM</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>MeetingEndInternal</strong>: xx:xx:xx 24-hour (e.g., <code>13:20:00</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>Monday</strong>: <code>M</code> or empty
+            </li>
+            <li>
+              {" "}
+              *<strong>Tuesday</strong>: <code>T</code> or empty
+            </li>
+            <li>
+              {" "}
+              *<strong>Wednesday</strong>: <code>W</code> or empty
+            </li>
+            <li>
+              {" "}
+              *<strong>Thursday</strong>: <code>TH</code> or empty
+            </li>
+            <li>
+              {" "}
+              *<strong>Friday</strong>: <code>F</code> or empty
+            </li>
+            <li>
+              {" "}
+              <strong>ShortTitle</strong>: string (e.g., <code>Number Theory</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>Faculty</strong>: string (first and last) (e.g., <code>Paul Erdos</code>)
+            </li>
+            <li>
+              {" "}
+              *<strong>SectionStatus</strong>: string (e.g., <code>Active</code>)
+            </li>
+            <li>
+              {" "}
+              <strong>InstructionalMethod</strong>: <code>LEC</code>, <code>CPI</code>,{" "}
+              <code>IND</code>, <code>TUT</code>, or <code>SEM</code>
+            </li>
+            <li>
+              {" "}
+              <strong>DeliveryMode</strong>: <code>In-person</code>,{" "}
+              <code>Online (synchronous)</code>, <code>Online (asynchronous)</code>,{" "}
+              <code>Hybrid</code>
+            </li>
+          </ul>
+        </>
+      }
+      title="Formatting"
+    />
   );
 };
 
 const Faq = () => {
-	return (
-		<TextSection
-			body={
-				<>
-					Frequently Asked Questions - To be developed over time
-				</>
-			}
-		title="FAQ"
-		/>
-	);
-}
+  return (
+    <TextSection
+      body={
+        <>
+          Frequently Asked Questions
+          <ul>
+            <li>
+              <em>How can I get support for the Schedulizer?</em> &mdash; Contact the{" "}
+              <a href="https://computing.calvin.edu/">Department of Computer Science</a>.
+            </li>
+          </ul>
+        </>
+      }
+      title="FAQ"
+    />
+  );
+};

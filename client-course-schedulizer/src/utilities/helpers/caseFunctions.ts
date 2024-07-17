@@ -1,6 +1,6 @@
 import { cloneDeep, forEach } from "lodash";
 import moment from "moment";
-import { Case } from "runtypes";
+//import { Case } from "runtypes";
 import { emptyMeeting } from "utilities/constants";
 import { Course, Day, Meeting, Section, SemesterLength, Term } from "utilities/interfaces";
 
@@ -85,7 +85,7 @@ export const timeCallback = (value: string, params: CaseCallbackParams) => {
   timeParts.forEach((time) => {
     const startTime = time.split(" ").join("").split("-")[0];
     startTimes += startTime + "\n";
-  })
+  });
 
   startTimeCallback(startTimes, params);
   durationCallback(value, params);
@@ -105,7 +105,9 @@ export const durationCallback = (value: string, params: CaseCallbackParams) => {
 
 export const locationCallback = (value: string, params: CaseCallbackParams) => {
   assignWithMeetings(value, params, (location, i, meetings) => {
-    [meetings[i].location.building, meetings[i].location.roomNumber] = locationCase(location.split("-")[0]);
+    [meetings[i].location.building, meetings[i].location.roomNumber] = locationCase(
+      location.split("-")[0],
+    );
   });
 };
 
@@ -140,12 +142,12 @@ export const courseCallback = (value: string, { course }: CaseCallbackParams) =>
   course.department = value.split(" ")[0];
   course.prefixes = [value.split(" ")[0]];
   course.number = value.split(" ")[1];
-}
+};
 
 export const courseSectionCallback = (value: string, { course, section }: CaseCallbackParams) => {
   section.letter = value.split("-")[1];
   course.name = value.split("-")[2];
-}
+};
 
 export const prefixCallback = (value: string, { course }: CaseCallbackParams) => {
   course.prefixes = value === "" ? [] : prefixCase(value);
@@ -188,7 +190,7 @@ export const yearCallback = (value: string, { section }: CaseCallbackParams) => 
 export const semesterHourCallback = (value: string, params: CaseCallbackParams) => {
   studentHoursCallback(value, params);
   facultyHoursCallback(value, params);
-}
+};
 
 export const studentHoursCallback = (value: string, { section }: CaseCallbackParams) => {
   // Remove '$' is Excel prepended it to the student hours
