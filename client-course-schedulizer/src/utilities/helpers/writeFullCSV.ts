@@ -4,7 +4,7 @@ import { Schedule, Section, Term } from "utilities/interfaces";
 import { getLocationString } from "utilities/services";
 
 export const scheduleToFullCSVString = (schedule: Schedule): string => {
-  const numericReg = RegExp("[0-9]");
+  //const numericReg = RegExp("[0-9]");
 
   // Sorts the schedule object by dept, class number, section letter, term
   schedule.courses = schedule.courses.sort((a, b): number => {
@@ -44,17 +44,18 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
 
       // Iterate through meetings to construct relevant strings
       let courseName = course.prefixes + " " + course.number + " - " + course.name;
-      let courseSectionName = course.prefixes + " " + course.number + "-" + section.letter + " - " + course.name;
+      let courseSectionName =
+        course.prefixes + " " + course.number + "-" + section.letter + " - " + course.name;
       let startMoment;
       let endMoment;
-      let meetingTimeStr = "";
+      // let meetingTimeStr = "";
       let meetingStartStr = "";
       // let meetingStartInternalStr = "";
       let meetingEndStr = "";
       // let meetingEndInternalStr = "";
-      let meetingDurationMinutesStr = "";
-      let buildingStr = "";
-      let roomNumberStr = "";
+      // let meetingDurationMinutesStr = "";
+      // let buildingStr = "";
+      // let roomNumberStr = "";
       let buildingAndRoomStr = "";
       // let roomCapacityStr = "";
       let daysStr = "";
@@ -67,22 +68,22 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
         startMoment = moment(meeting.startTime, "h:mm A");
         endMoment = startMoment.clone().add(meeting.duration, "minutes");
         if (startMoment.isValid()) {
-          meetingTimeStr += getMeetingTimeStr(startMoment, endMoment);
+          // meetingTimeStr += getMeetingTimeStr(startMoment, endMoment);
           meetingStartStr += `${startMoment.format("h:mm A")}\n`;
           // meetingStartInternalStr += `${startMoment.format("H:mm:ss")}\n`;
           meetingEndStr += `${endMoment.format("h:mm A")}\n`;
           // meetingEndInternalStr += `${endMoment.format("H:mm:ss")}\n`;
         } else {
-          meetingTimeStr += "\n";
+          // meetingTimeStr += "\n";
           meetingStartStr += "\n";
           // meetingStartInternalStr += "\n";
           meetingEndStr += "\n";
           // meetingEndInternalStr += "\n";
         }
-        meetingDurationMinutesStr += `${meeting.duration}\n`;
+        // meetingDurationMinutesStr += `${meeting.duration}\n`;
         if (meeting.location && meeting.location.building) {
-          buildingStr += `${meeting.location.building}\n`;
-          roomNumberStr += `${meeting.location.roomNumber}\n`;
+          // buildingStr += `${meeting.location.building}\n`;
+          // roomNumberStr += `${meeting.location.roomNumber}\n`;
           buildingAndRoomStr += meeting.location.roomNumber
             ? `${getLocationString(meeting.location)}\n`
             : `${meeting.location.building}\n`;
@@ -96,14 +97,14 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
         // friStr += `${meeting.days.includes(Day.Friday) ? "F" : ""}\n`;
       });
       // Remove trailing newlines
-      meetingTimeStr = meetingTimeStr.slice(0, -1);
+      //meetingTimeStr = meetingTimeStr.slice(0, -1);
       meetingStartStr = meetingStartStr.slice(0, -1);
       // meetingStartInternalStr = meetingStartInternalStr.slice(0, -1);
       meetingEndStr = meetingEndStr.slice(0, -1);
       // meetingEndInternalStr = meetingEndInternalStr.slice(0, -1);
-      meetingDurationMinutesStr = meetingDurationMinutesStr.slice(0, -1);
-      buildingStr = buildingStr.slice(0, -1);
-      roomNumberStr = roomNumberStr.slice(0, -1);
+      //meetingDurationMinutesStr = meetingDurationMinutesStr.slice(0, -1);
+      //buildingStr = buildingStr.slice(0, -1);
+      //roomNumberStr = roomNumberStr.slice(0, -1);
       buildingAndRoomStr = buildingAndRoomStr.slice(0, -1);
       // roomCapacityStr = roomCapacityStr.slice(0, -1);
       daysStr = daysStr.slice(0, -1);
@@ -117,7 +118,7 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
       // const sectionNameStr = `${course.prefixes.length ? course.prefixes[0] : ""}-${
       //   course.number
       // }-${section.letter}`;
-      const courseLevelCodeStr = numericReg.test(course.number[0]) ? `${course.number[0]}00` : "";
+      //const courseLevelCodeStr = numericReg.test(course.number[0]) ? `${course.number[0]}00` : "";
 
       let meetingPatterns = [];
       const days = daysStr.split("\n");
@@ -129,10 +130,13 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
       }
 
       // Construct a row in the output CSV
-      csvStr += `${termStr},${courseName},${courseSectionName},${section.status
-      },${section.studentHours > -1 ? section.studentHours : ""},"${section.instructors.join("\n")
-      }","${meetingPatterns.join("\n")}",${section.startDate ?? ""},${section.endDate ?? ""},"${buildingAndRoomStr
-      }","${section.instructionalMethod ?? "" }","${section.comments ?? ""}","${section.timestamp ?? ""}"\n`;
+      csvStr += `${termStr},${courseName},${courseSectionName},${section.status},${
+        section.studentHours > -1 ? section.studentHours : ""
+      },"${section.instructors.join("\n")}","${meetingPatterns.join("\n")}",${
+        section.startDate ?? ""
+      },${section.endDate ?? ""},"${buildingAndRoomStr}","${section.instructionalMethod ?? ""}","${
+        section.comments ?? ""
+      }","${section.timestamp ?? ""}"\n`;
 
       // csvStr += `"${course.department ?? ""}",${termStr
       //   },"${course.prefixes.join("\n")}",${course.number},${section.letter
@@ -140,11 +144,11 @@ export const scheduleToFullCSVString = (schedule: Schedule): string => {
       //   },${section.studentHours > -1 ? section.studentHours : ""}, ${section.facultyHours > -1 ? section.facultyHours : ""},"${buildingAndRoomStr
       //   }","${daysStr}","${meetingTimeStr}",${section.startDate ?? ""},${section.endDate ?? ""},${section.semesterLength ?? ""},"${buildingStr
       //   }","${roomNumberStr}","${meetingStartStr}","${meetingDurationMinutesStr
-      //   }","${meetingEndStr}","${ section.name ?? course.name 
+      //   }","${meetingEndStr}","${ section.name ?? course.name
       //   }","${section.instructors.join("\n")}","${section.status ?? ""
-      //   }","${section.instructionalMethod ?? "" 
-      //   }","${section.deliveryMode ?? "" 
-      //   }","${section.group ?? "" 
+      //   }","${section.instructionalMethod ?? ""
+      //   }","${section.deliveryMode ?? ""
+      //   }","${section.group ?? ""
       //   }","${section.comments ?? ""}","${section.timestamp ?? ""}"\n`;
     });
   });
