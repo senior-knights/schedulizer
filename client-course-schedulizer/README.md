@@ -19,6 +19,11 @@ The Course Schedulizer is a single-page application that allows users to view an
 1. `git checkout` the branch you want to work on (e.g., your dedicated feature branch).
 1. `cd client-course-schedulizer` to move into the monorepo&rsquo;s client application sub-directory.
 1. `pnpm install` to install the required NodeJS packages as specified in `package.json`.
+   - Use the version of NodeJS specified in `.nvmrc`. You can install it manually
+     using [nvm](https://github.com/nvm-sh/nvm), or let pnpm
+     [do it automatically](https://pnpm.io/npmrc#use-node-version).
+   - Use the version of pnpm specified in `package.json`. You can [install it manually](https://pnpm.io/installation), or, if enabled,
+     [Corepack](https://nodejs.org/api/corepack.html) will do it automatically.
 1. `pnpm start` to run the website on [localhost:3000](http://localhost:3000).
 
 Edits you make to the code will automatically update the website in your browser.
