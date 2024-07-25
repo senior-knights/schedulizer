@@ -19,7 +19,23 @@
     ],
     "cSpell.dictionaries": ["en_US", "typescript", "node", "html", "css", "npm"],
     "cSpell.enableFiletypes": ["html", "js", "json", "jsx", "markdown", "md", "scss", "ts", "tsx"],
-    "cSpell.words": ["Corepack", "Pruim", "Schedulizer", "VanderLinden"],
+    "cSpell.words": [
+      "Corepack",
+      "CSPS",
+      "Faeren",
+      "Fitsum",
+      "Haileselassie",
+      "Kornoelje",
+      "Madza",
+      "Maru",
+      "Norvig",
+      "Pruim",
+      "reuseables",
+      "Schedulizer",
+      "VanderLinden",
+      "Velpula",
+      "Vreeke"
+    ],
     "cSpell.blockCheckingWhenTextChunkSizeGreaterThan": 1500 // Allow checking of files with long base64 strings.
   },
   "extensions": {

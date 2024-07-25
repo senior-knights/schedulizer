@@ -165,7 +165,7 @@ const AboutCode = () => {
           The original release of the Schedulizer included{" "}
           <NewTabLink href="https://github.com/charkour/harmoniously">Harmoniously</NewTabLink>, an
           honors project that automatically generated schedules using{" "}
-          <NewTabLink href="https://github.com/charkour/csps">csps</NewTabLink>, a TypeScript port
+          <NewTabLink href="https://github.com/charkour/csps">CSPS</NewTabLink>, a TypeScript port
           of Russell &amp; Norvig&rsquo;s constraint satisfaction algorithm.
         </>
       }

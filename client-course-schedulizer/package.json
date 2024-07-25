@@ -5,13 +5,13 @@
   "homepage": ".",
   "scripts": {
     "build": "react-scripts build",
-    "predeploy": "pnpm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@8.7.6",
   "engines": {
     "node": "20"
   },
