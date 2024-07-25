@@ -28,7 +28,7 @@ jobs:
         run: pnpm install
         working-directory: ${{env.working-directory}}
       - name: Build Page
-        run: pnpm run build
+        run: pnpm build
         working-directory: ${{env.working-directory}}
       - name: Remove gh-pages Cache
         run: rm -rf node_modules/gh-pages/.cache

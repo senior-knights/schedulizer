@@ -15,21 +15,21 @@ This is the repository for the Course Schedulizer project created by students at
 
 - [About page](https://senior-knights.github.io/course-schedulizer/#/about) for a discussion of the purpose of the application.
 - [Help page](https://senior-knights.github.io/course-schedulizer/#/help) for instructions on how to use the application.
-- [Client README file](client-course-schedulizer/README.md) for a specification of the system development workflow.
+- [Client README file](client-course-schedulizer/README.md) for a specification of the system development workflows.
 
 ## Development Philosophy
 
-We generally follow the [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) collaboration model, with production, development, and feature branches.
+We generally follow the [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) collaboration model, using these branches.
 
 - The `production` branch is a persistent branch that contains the most stable version of the Course Schedulizer. It requires two reviews to merge PRs to this branch.
 - The `develop` branch is a persistent branch that contains the cutting edge version of the Course Schedulizer. It requires one review to merge PRs to this branch. Each PR is ideally around 100-200 LOC.
-- Feature branches are cloned from `develop` and are used for developing new features. They are merged back into `develop` when the feature is complete.
+- _Feature branches_ are cloned from `develop` and are used for developing new features. They are merged back into `develop` when the feature is complete.
 
 Code reviews are done on every PR merged into the two persistent branches. A PR is made with a branch following the naming convention of `<broad>/<specific>`. `<broad>` are things like `feature`, `docs`, `chore`, `fix`, etc.
 
 ## Repository Configuration
 
-The repo is a [mono-repository](https://en.wikipedia.org/wiki/Monorepo), to spite the fact that it comprises only one application, stored in `./client-course-schedulizer`. This historical artifact leaves open the possibility of adding applications in the future.
+The repo is a [mono-repository](https://en.wikipedia.org/wiki/Monorepo) with one application, stored in `./client-course-schedulizer`, and the possibility of adding applications in the future.
 
 Because the application is open source, we use free minutes of GitHub actions to perform CI/CD. `ci.yml` tests on any push or PR against `develop` or `production`.
 
@@ -41,7 +41,7 @@ Development is best done using [VS Code](https://code.visualstudio.com/) and the
 
 - [EditorConfig](https://editorconfig.org/), which specifies shared editor configuration parameters (see [`.editorconfig`](.editorconfig)).
 - [Prettier](https://prettier.io/), which formats code and organizes imports (see [`.prettierrc.js`](.prettierrc.js)).
-- [ESLint](https://eslint.org/), which specifies application-specific formatting rules (see [`client-course-schedulizer/.eslintrc.js`](client-course-schedulizer/.eslintrc.js)).
+- [ESLint](https://eslint.org/), which specifies application-specific formatting rules (see [`client-course-schedulizer/.eslintrc.js`](client-course-schedulizer/.eslintrc.js); n.b., [`client-course-schedulizer/.env`](client-course-schedulizer/.env) allows for overriding the Create React App ESLint configuration.
 - [CSpell](https://cspell.org/), which checks spelling in markdown, comments, and strings (see the `cspell` settings in [`.vscode/course-schedulizer.code-workspace`](.vscode/course-schedulizer.code-workspace)).
 
 You can add your own user-specific VS Code extensions, but be sure to use these recommended, shared settings and extensions.
