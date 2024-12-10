@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { NewTabLink, Page } from "components/reuseables";
 import React from "react";
-import { team2020, team2021, team2022, team2023, teamAdvisors, TeamMember } from "utilities";
+import { team2020, team2021, team2022, team2023, team2024, teamAdvisors, TeamMember } from "utilities";
 import { TeamMemberProfile, TextSection } from ".";
 import "./AboutPage.scss";
 
@@ -11,6 +11,7 @@ export const AboutPage = () => {
   return (
     <Page>
       <AboutVision />
+      <AboutTeam2024 />
       <AboutTeam2023 />
       <AboutTeam2022 />
       <AboutTeam2021 />
@@ -132,6 +133,21 @@ const AboutTeam2023 = () => {
         </Grid>
       }
       title="Team of 2023"
+    />
+  );
+};
+
+const AboutTeam2024 = () => {
+  return (
+    <TextSection
+      body={
+        <Grid container direction="column" justify="flex-start" spacing={2}>
+          {team2024.map((member: TeamMember) => {
+            return <TeamMemberProfile key={member.name} member={member} />;
+          })}
+        </Grid>
+      }
+      title="Team of 2024"
     />
   );
 };
