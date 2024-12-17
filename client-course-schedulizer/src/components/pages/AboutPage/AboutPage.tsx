@@ -196,6 +196,13 @@ const AboutReport = () => {
       body={
         <ul>
           <li>
+            <NewTabLink href="https://docs.google.com/document/d/e/2PACX-1vS3Tn3OXVt5XVv9jBAjcJO81BWtXvZreZDOkvkH5WCU7oUyhlqe2EWZ4S51RJ9sqTfKC1SjiECRuNr5/pub">
+            2024 Project Proposal
+            </NewTabLink>{" "}
+            - 10.1.2024
+          </li>
+          <hr />
+          <li>
             <NewTabLink href="https://docs.google.com/document/d/1l0ChWMDnPiDJkvFFctdpIZUheSkJ3shouFSYFIIsNW0/edit?usp=sharing">
               Final Report
             </NewTabLink>{" "}
@@ -262,6 +269,13 @@ const AboutResources = () => {
             <NewTabLink href="https://computing.calvin.edu/">
               Computing@Calvin Department Website
             </NewTabLink>
+          </li>
+          <hr />
+          <li>
+            <NewTabLink href="https://docs.google.com/presentation/d/e/2PACX-1vSGiDKCClWDm4Oj35r8sMiOp24fvbtLBQunou5uy7psD6hsxWCqOq2y7KJtC0KF4A5Lp4ypqx2WCsfE/pub?start=false&loop=false&delayms=3000">
+              Status Report Slides
+            </NewTabLink>{" "}
+            - 12.10.2024
           </li>
           <hr />
           <li>

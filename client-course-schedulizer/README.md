@@ -49,7 +49,7 @@ Edits you make to the code will automatically update the website in your browser
 
 1. Create a pull request to merge your fully-implemented-and-tested feature branch into the `develop` branch. You can test your branch locally by running:
    - `pnpm start` to manually test your changes.
-   - `pnpm test` Launches the test runner in the interactive watch mode. See the section about [running tests](https://create-react-app.dev/docs/running-tests/) for more information.
+   - `pnpm test` Launches the test runner in the interactive watch mode. See the section about [running tests](https://sharp-babbage-a45ee2.netlify.app/#/about) for more information.
 
 GitHub is configured to require on review by a team member for all merges into the `develop` branch. When the merge is approved:
 
