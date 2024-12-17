@@ -13,7 +13,7 @@ _Create academic course schedules without stress._
 
 This is the repository for the Course Schedulizer project created by students at [Calvin University](https://calvin.edu/) for the [Computer Science senior project](https://cs.calvin.edu/courses/cs/396/). For more information, see the:
 
-- [About page](https://senior-knights.github.io/course-schedulizer/#/about) for a discussion of the purpose of the application.
+- [About page](https://sharp-babbage-a45ee2.netlify.app/#/about) for a discussion of the purpose of the application.
 - [Help page](https://senior-knights.github.io/course-schedulizer/#/help) for instructions on how to use the application.
 - [Client README file](client-course-schedulizer/README.md) for a specification of the system development workflows.
 
