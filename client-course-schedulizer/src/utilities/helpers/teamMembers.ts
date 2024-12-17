@@ -93,6 +93,27 @@ export const team2023: TeamMember[] = [
   },
 ];
 
+export const team2024: TeamMember[] = [
+  {
+    bio: "Computer Science Student at Calvin University.",
+    name: "Noelle Haviland",
+    photo: "https://avatars.githubusercontent.com/u/112643038?v=4",
+    website: "https://github.com/neh8",
+  },
+  {
+    bio: "Computer Science Student at Calvin University.",
+    name: "Yuese Li",
+    photo: "https://avatars.githubusercontent.com/u/144585524?v=4",
+    website: "https://github.com/wahrheit319",
+  },
+  {
+    bio: "Computer Science Student at Calvin University.",
+    name: "Edom Maru",
+    photo: "https://avatars.githubusercontent.com/u/88850851?v=4",
+    website: "https://github.com/edomamaru",
+  },
+];
+
 export const teamAdvisors: TeamMember[] = [
   {
     bio:
