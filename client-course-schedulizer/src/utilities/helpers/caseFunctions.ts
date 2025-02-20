@@ -218,9 +218,11 @@ export const termStartCallback = (value: string, { section }: CaseCallbackParams
 //   section.used = integerDefaultZeroCase(value);
 // };
 
-// export const day10UsedCallback = (value: string, { section }: CaseCallbackParams) => {
-//   section.day10Used = integerDefaultZeroCase(value);
-// };
+export const day10UsedCallback = (value: string, { section }: CaseCallbackParams): void => {
+  if (value && value.trim() !== '') {
+    section.day10Used = integerDefaultZeroCase(value);
+  }
+};
 
 export const startDateCallback = (value: string, { section }: CaseCallbackParams) => {
   if (value.trim() !== "") {
@@ -415,4 +417,10 @@ export const durationCase = (value: string): number => {
 
 export const yearCase = (value: string): number | string | undefined => {
   return value && Number.isInteger(Number(value)) ? Number(value) : value;
+};
+
+export const courseLevelCallback = (value: string, data: CaseCallbackParams): void => {
+  if (value && value.trim() !== '') {
+    data.course.courseLevel = value.trim();
+  }
 };

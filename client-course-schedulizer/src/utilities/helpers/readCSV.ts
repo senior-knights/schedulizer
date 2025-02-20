@@ -92,10 +92,36 @@ const templateSpreadsheetFields: ValidFields = {
   Terms: cf.termCallback,
 };
 
+const newFormatFields: ValidFields = {
+  AcademicYear: cf.yearCallback,
+  Classroom: cf.locationCallback,
+  Comment: cf.commentsCallback,
+  CourseLevel: cf.courseLevelCallback,
+  CourseNumber: cf.numberCallback,
+  Department: cf.departmentCallback,
+  Enrollment: cf.anticipatedSizeCallback,
+  EnrollmentDay10: cf.day10UsedCallback,
+  Faculty: cf.instructorCallback,
+  FacultyLoad: cf.facultyHoursCallback,
+  Group: cf.groupCallback,
+  InstructionalMethod: cf.instructionalMethodCallback,
+  MaximumCredits: cf.roomCapacityCallback,
+  MeetingDays: cf.daysCallback,
+  MeetingDuration: cf.durationCallback,
+  MinimumCredits: cf.studentHoursCallback,
+  Prefix: cf.prefixCallback,
+  Section: cf.letterCallback,
+  ShortTitle: cf.nameCallback,
+  StartTime: cf.startTimeCallback,
+  Term: cf.termCallback,
+  TermPart: cf.semesterLengthCallback,
+};
+
 const callbacks: ValidFields = {
   ...pruimSpreadsheetFields,
   ...registrarSpreadsheetFields,
   ...templateSpreadsheetFields,
+  ...newFormatFields,
 };
 
 export const csvStringToSchedule = (csvString: string): Schedule => {
@@ -236,4 +262,5 @@ export const insertSectionCourse = (schedule: Schedule, section: Section, course
   }
   return schedule;
 };
+
 
