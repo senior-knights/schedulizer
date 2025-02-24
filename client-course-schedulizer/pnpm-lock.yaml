@@ -192,9 +192,6 @@ importers:
       '@types/react-table':
         specifier: ^7.7.0
         version: 7.7.20
-      '@types/yup':
-        specifier: ^0.32.0
-        version: 0.32.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^4.0.0
         version: 4.33.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@3.9.10))(eslint@7.32.0)(typescript@3.9.10)
@@ -1903,10 +1900,6 @@ packages:
 
   '@types/yargs@17.0.32':
     resolution: {integrity: sha512-xQ67Yc/laOG5uMfX/093MRlGGCIBzZMarVa+gfNKJxWAIgykYpVGkBdbqEzGDDfCrVUj6Hiff4mTZ5BA6TmAog==}
-
-  '@types/yup@0.32.0':
-    resolution: {integrity: sha512-Gr2lllWTDxGVYHgWfL8szjdedERpNgm44L9BDL2cmcHG7Bfd6taEpiW3ayMFLaYvlJr/6bFXDJdh6L406AGlFg==}
-    deprecated: This is a stub types definition. yup provides its own type definitions, so you do not need this installed.
 
   '@typescript-eslint/eslint-plugin@4.33.0':
     resolution: {integrity: sha512-aINiAxGVdOl1eJyVjaWn/YcVAq4Gi/Yo35qHGCnqbWVz61g39D0h23veY/MA0rFFGfxK7TySg2uwDeNv+JgVpg==}
@@ -9060,10 +9053,6 @@ snapshots:
   '@types/yargs@17.0.32':
     dependencies:
       '@types/yargs-parser': 21.0.3
-
-  '@types/yup@0.32.0':
-    dependencies:
-      yup: 1.4.0
 
   '@typescript-eslint/eslint-plugin@4.33.0(@typescript-eslint/parser@4.33.0(eslint@7.32.0)(typescript@3.9.10))(eslint@7.32.0)(typescript@3.9.10)':
     dependencies:
