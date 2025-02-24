@@ -71,9 +71,6 @@ importers:
       '@testing-library/user-event':
         specifier: ^14.6.1
         version: 14.6.1(@testing-library/dom@9.3.4)
-      '@types/testing-library__react':
-        specifier: ^10.2.0
-        version: 10.2.0(@testing-library/dom@9.3.4)(@types/react-dom@18.3.5(@types/react@16.14.62))(@types/react@16.14.62)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       fs:
         specifier: ^0.0.1-security
         version: 0.0.1-security
@@ -2393,10 +2390,6 @@ packages:
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
-
-  '@types/testing-library__react@10.2.0':
-    resolution: {integrity: sha512-KbU7qVfEwml8G5KFxM+xEfentAAVj/SOQSjW0+HqzjPE0cXpt0IpSamfX4jGYCImznDHgQcfXBPajS7HjLZduw==}
-    deprecated: This is a stub types definition. testing-library__react provides its own type definitions, so you do not need this installed.
 
   '@types/trusted-types@2.0.7':
     resolution: {integrity: sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw==}
@@ -10948,16 +10941,6 @@ snapshots:
       '@types/node': 22.13.5
 
   '@types/stack-utils@2.0.3': {}
-
-  '@types/testing-library__react@10.2.0(@testing-library/dom@9.3.4)(@types/react-dom@18.3.5(@types/react@16.14.62))(@types/react@16.14.62)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@testing-library/react': 16.2.0(@testing-library/dom@9.3.4)(@types/react-dom@18.3.5(@types/react@16.14.62))(@types/react@16.14.62)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    transitivePeerDependencies:
-      - '@testing-library/dom'
-      - '@types/react'
-      - '@types/react-dom'
-      - react
-      - react-dom
 
   '@types/trusted-types@2.0.7': {}
 
