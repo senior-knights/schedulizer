@@ -16,43 +16,28 @@ export const useExportExcel = () => {
     schedule.courses.forEach((course: any) => {
       course.sections.forEach((section: any) => {
         const row = {
-          Department: course.department || "",
-          AcademicYear: course.academicYear || "",
-          Term: section.term || "",
-          TermPart: section.semesterLength || "",
-          Prefix: course.prefix || "",
-          CourseNumber: course.number || "",
-          Section: section.letter || "",
-          Faculty:
-            Array.isArray(section.instructors) && section.instructors.length > 0
-              ? section.instructors.join(", ")
-              : section.instructors || "",
-          FacultyLoad: course.facultyHours || "",
-          MinimumCredits: course.studentHours || "",
-          MaximumCredits: course.roomCapacity || "",
-          MeetingDays: section.meetings
-            ? section.meetings
-                .map((m: any) => {return (m.days ? m.days.join(",") : "")})
-                .join("; ")
-            : "",
-          StartTime:
-            section.meetings && section.meetings.length > 0
-              ? section.meetings[0].startTime || ""
-              : "",
-          MeetingDuration:
-            section.meetings && section.meetings.length > 0
-              ? section.meetings[0].duration || ""
-              : "",
-          Classroom: section.meetings
-            ? section.meetings.map((m: any) => {return m.location || ""}).join(", ")
-            : "",
-          ShortTitle: course.name || "",
-          InstructionalMethod: section.instructionalMethod || "",
-          CourseLevel: course.courseLevel || "",
-          Group: course.group || "",
-          Comment: course.comment || "",
-          Enrollment: course.anticipatedSize || "",
-          EnrollmentDay10: course.day10Used || "",
+          Department: course.department ?? "",
+          AcademicYear: course.academicYear ?? course.year ?? "",
+          Term: section.term ?? "",
+          TermPart: section.semesterLength ?? "",
+          Prefix: Array.isArray(course.prefixes) ? course.prefixes.join(", ") : (course.prefix ?? ""),
+          CourseNumber: course.number ?? "",
+          Section: section.letter ?? "",
+          Faculty: Array.isArray(section.instructors) ? section.instructors.join(", ") : (section.instructors ?? ""),
+          FacultyLoad: course.facultyHours ?? "",
+          MinimumCredits: course.studentHours ?? "",
+          MaximumCredits: course.roomCapacity ?? "",
+          MeetingDays: section.meetings ? section.meetings.map((m: any) => {return m.days ? m.days.join(",") : ""}).join("; ") : "",
+          StartTime: section.meetings && section.meetings.length > 0 ? section.meetings[0].startTime ?? "" : "",
+          MeetingDuration: section.meetings && section.meetings.length > 0 ? section.meetings[0].duration ?? "" : "",
+          Classroom: section.meetings ? section.meetings.map((m: any) => {return m.location ?? ""}).join(", ") : "",
+          ShortTitle: course.name ?? "",
+          InstructionalMethod: section.instructionalMethod ?? "",
+          CourseLevel: course.courseLevel ?? "",
+          Group: course.group ?? "",
+          Comment: course.comment ?? "",
+          Enrollment: course.anticipatedSize ?? "",
+          EnrollmentDay10: course.day10Used ?? "",
         };
         exportData.push(row);
       });
