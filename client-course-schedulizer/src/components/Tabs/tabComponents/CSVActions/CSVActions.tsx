@@ -11,6 +11,10 @@ export const CSVActions = () => {
   const popupState = usePopupState({ popupId: "menu", variant: "popover" });
   const onFullExportClick = useExportFullCSV();
 
+  const onExportExcelClick = () => {
+    console.log("Export to Excel clicked");
+  };
+
   return (
     <>
       <IconButton color="inherit" edge="start" {...bindTrigger(popupState)}>
@@ -39,6 +43,9 @@ export const CSVActions = () => {
         </ImportInputWrapper>
         <MenuItem button onClick={onFullExportClick}>
           EXPORT CSV
+        </MenuItem>
+        <MenuItem button onClick={onExportExcelClick}>
+          EXPORT EXCEL
         </MenuItem>
       </Menu>
     </>
