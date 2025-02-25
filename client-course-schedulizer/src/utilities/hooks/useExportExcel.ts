@@ -5,6 +5,16 @@ import moment from "moment";
 import { useContext } from "react";
 import { AppContext } from "utilities/contexts";
 
+const formatNumber = (num: number | undefined): string => {
+  if (num === undefined) return "";
+  return Number.isInteger(num) ? Math.floor(num).toString() : num.toFixed(1);
+};
+
+const formatTime = (time: string | undefined): string => {
+  if (!time) return "";
+  return moment(time, "h:mm A").format("HH:mm:00");
+};
+
 export const useExportExcel = () => {
   const {
     appState: { schedule },
@@ -24,11 +34,13 @@ export const useExportExcel = () => {
           CourseNumber: course.number ?? "",
           Section: section.letter ?? "",
           Faculty: Array.isArray(section.instructors) ? section.instructors.join(", ") : (section.instructors ?? ""),
-          FacultyLoad: section.facultyHours?.toFixed(1) ?? "",
-          MinimumCredits: section.studentHours?.toFixed(1) ?? "",
-          MaximumCredits: section.meetings?.[0]?.location?.roomCapacity?.toFixed(1) ?? "",
-          MeetingDays: section.meetings ? section.meetings.map((m: any) => {return m.days ? m.days.join(",") : ""}).join("; ") : "",
-          StartTime: section.meetings && section.meetings.length > 0 ? section.meetings[0].startTime ?? "" : "",
+          FacultyLoad: formatNumber(section.facultyHours),
+          MinimumCredits: formatNumber(section.studentHours),
+          MaximumCredits: formatNumber(section.meetings?.[0]?.location?.roomCapacity),
+          MeetingDays: section.meetings ? section.meetings.map((m: any) => {
+            return m.days ? m.days.map((day: string) => {return day === "TH" ? "R" : day}).join("") : "";
+          }).join("; ") : "",
+          StartTime: section.meetings && section.meetings.length > 0 ? formatTime(section.meetings[0].startTime) : "",
           MeetingDuration: section.meetings && section.meetings.length > 0 ? section.meetings[0].duration ?? "" : "",
           Classroom: section.meetings ? section.meetings.map((m: any) => {return m.location ? `${m.location.building} ${m.location.roomNumber}` : "";}).join(", ") : "",
           ShortTitle: course.name ?? "",
