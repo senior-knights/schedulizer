@@ -4,16 +4,14 @@ import { ImportInputWrapper } from "components";
 import { bindMenu, bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import React from "react";
 import { useExportFullCSV } from "utilities";
+import { useExportExcel } from "utilities/hooks/useExportExcel";
 import "./CSVActions.scss";
 
 /* Hamburger with options for the CSV */
 export const CSVActions = () => {
   const popupState = usePopupState({ popupId: "menu", variant: "popover" });
   const onFullExportClick = useExportFullCSV();
-
-  const onExportExcelClick = () => {
-    console.log("Export to Excel clicked");
-  };
+  const onExportExcelClick = useExportExcel();
 
   return (
     <>
