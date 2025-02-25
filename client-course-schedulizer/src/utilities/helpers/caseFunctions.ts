@@ -276,7 +276,7 @@ export const nonTeachingActivityCallback = (value: string, params: CaseCallbackP
 
 export const startTimeCase = (value: string): string => {
   const startMoment = moment(value, "h:mm A");
-  return startMoment.isValid() ? startMoment.format("HH:mm:ss") : "";
+  return startMoment.isValid() ? startMoment.format("h:mm A") : "";
 };
 
 export const locationCase = (value: string): string[] => {
